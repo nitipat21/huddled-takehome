@@ -1,7 +1,6 @@
-// import { Database } from "bun:sqlite"; // You can use this if you prefer Bun
+import { Database } from "bun:sqlite";
 import fs from 'fs';
 import path from 'path';
-import Database from 'better-sqlite3';
 
 const dbDir = path.resolve('./database');
 const dbFile = path.join(dbDir, 'main.db');
