@@ -25,20 +25,20 @@ You have been provided with a system that tracks user interactions on artist pag
 The table should show the following columns:
 
 | Artist Id | Artist Name | Total Interaction Time | Total Unique Visitors |
-| --- | --- | --- | --- |
+| --------- | ----------- | ---------------------- | --------------------- |
 
 **Important Requirements**:
 
 1. **Total Interaction Time**:
-    - This should be calculated based on the time each user spends interacting with an artist’s page (from `start_time` to `end_time`).
-    - The interaction time should be displayed relative to its actual value:
-        - **Seconds** for interactions less than 1 minute.
-        - **Minutes** for interactions less than 1 hour.
-        - **Hours** for interactions longer than 1 hour.
+   - This should be calculated based on the time each user spends interacting with an artist’s page (from `start_time` to `end_time`).
+   - The interaction time should be displayed relative to its actual value:
+     - **Seconds** for interactions less than 1 minute.
+     - **Minutes** for interactions less than 1 hour.
+     - **Hours** for interactions longer than 1 hour.
 2. **Unique Visitors**:
-    - Count the number of unique users that visited each artist’s page.
+   - Count the number of unique users that visited each artist’s page.
 3. **Sorting:**
-    - Table should be sorted by descending total interaction time
+   - Table should be sorted by descending total interaction time
 
 The data is currently stored in the database (`./database/main.db`) and displayed through the `/lib/components/artistTable.svelte` component. The table’s values are populated by a SQL query found in `/routes/task-1/+page.server/svelte`, but the logic behind this query and the component’s rendering are both faulty.
 
@@ -70,22 +70,22 @@ You have access to the table `user_events`, which tracks various interactions us
 ### **Requirements**:
 
 1. **Define Positive Engagement**:
-    - Positive engagement is determined by specific interaction types. These include events like `like_track`, `play_track`, and `share_track`. You will need to assign each type a weight to reflect its relative importance. For example:
-        - `like_track` = 2 points
-        - `add_track_to_playlist` = 2
-        - `play_track` = 1 point
-        - `share_track` = 3 points
-    - You will need to consider the total positive engagement score for each artist based on these weights.
+   - Positive engagement is determined by specific interaction types. These include events like `like_track`, `play_track`, and `share_track`. You will need to assign each type a weight to reflect its relative importance. For example:
+     - `like_track` = 2 points
+     - `add_track_to_playlist` = 2
+     - `play_track` = 1 point
+     - `share_track` = 3 points
+   - You will need to consider the total positive engagement score for each artist based on these weights.
 2. **Time of Day**:
-    - You need to determine the time of day (hour of the day) when each artist experiences the most positive engagement. Group the data by hour (0–23) and calculate the total positive engagement for each artist during each hour of the day.
+   - You need to determine the time of day (hour of the day) when each artist experiences the most positive engagement. Group the data by hour (0–23) and calculate the total positive engagement for each artist during each hour of the day.
 3. **Time-zone Considerations**:
-    - The timestamps in the dataset are in UTC, but you need to convert them to the user’s local time-zone. You have access to the user’s timezone in the `users` table, so make sure you adjust the timestamps accordingly.
+   - The timestamps in the dataset are in UTC, but you need to convert them to the user’s local time-zone. You have access to the user’s timezone in the `users` table, so make sure you adjust the timestamps accordingly.
 4. **Visualisation**:
-    - Once you have cleaned and aggregated the data, visualise the results:
-        - Create a graph that shows the total positive engagement for each artist, grouped by hour of the day (0–23).
-        - The visualisation should allow you to easily see when an artist receives the most engagement and identify any patterns (e.g., higher engagement during evening hours).
+   - Once you have cleaned and aggregated the data, visualise the results:
+     - Create a graph that shows the total positive engagement for each artist, grouped by hour of the day (0–23).
+     - The visualisation should allow you to easily see when an artist receives the most engagement and identify any patterns (e.g., higher engagement during evening hours).
 5. **Bonus (Optional)**:
-    - For a more comprehensive analysis, you could also examine engagement patterns by day of the week (e.g., weekdays vs. weekends).
+   - For a more comprehensive analysis, you could also examine engagement patterns by day of the week (e.g., weekdays vs. weekends).
 
 ### **Expected Outcome**:
 
@@ -103,13 +103,13 @@ You have access to the table `user_events`, which tracks various interactions us
 
 ### **Description:**
 
-Based on the trends and data available, write down some dot points on how you would improve the way users discover new artists. 
+Based on the trends and data available, write down some dot points on how you would improve the way users discover new artists.
 
 ### **Requirements (to think about):**
 
 - **Data Analysis**:
-    - Think about how you would analyse the existing interaction data to identify patterns and preferences for each user.
-    - Consider factors such as the frequency of visits, interaction types (e.g., likes, shares), and the duration of interactions.
+  - Think about how you would analyse the existing interaction data to identify patterns and preferences for each user.
+  - Consider factors such as the frequency of visits, interaction types (e.g., likes, shares), and the duration of interactions.
 
 ### **Implementation Plan**
 
