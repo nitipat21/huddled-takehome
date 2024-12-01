@@ -1,12 +1,12 @@
 <script lang="ts">
-	let { artistVisits } = $props();
+	import type { ArtistInteraction } from '$lib/types';
+	import { formatDuration } from '$lib/utils/formatDuration';
 
-	function formatDuration(duration: number): string {
-		const minutes = Math.floor(duration / 60);
-		const seconds = duration % 60;
+	type ArtistTableProps = {
+		artistInteractions: ArtistInteraction[];
+	};
 
-		return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-	}
+	const { artistInteractions }: ArtistTableProps = $props();
 </script>
 
 <div class="overflow-x-auto">
@@ -18,11 +18,12 @@
 				<tr>
 					<th scope="col" class="px-6 py-3">Artist Id</th>
 					<th scope="col" class="px-6 py-3">Artist Name</th>
-					<th scope="col" class="px-6 py-3">Total Time Spent (minutes)</th>
+					<th scope="col" class="px-6 py-3">Total Time Spent</th>
+					<th scope="col" class="px-6 py-3">Total Unique Visitors</th>
 				</tr>
 			</thead>
 			<tbody>
-				{#each artistVisits as { artist_id, artist_name, total_visit_duration, unique_session_count }}
+				{#each artistInteractions as { artist_id, artist_name, total_visit_duration, total_unique_visitors }}
 					<tr class="border-b bg-white dark:border-gray-700 dark:bg-gray-800">
 						<td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
 							{artist_id}
@@ -34,7 +35,7 @@
 							{formatDuration(total_visit_duration)}
 						</td>
 						<td class="px-6 py-4">
-							{formatDuration(unique_session_count)}
+							{total_unique_visitors}
 						</td>
 					</tr>
 				{/each}

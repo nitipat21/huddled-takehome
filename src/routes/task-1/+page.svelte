@@ -1,10 +1,10 @@
 <script lang="ts">
-	import ArtistTable from '$lib/components/artistTable.svelte';
-	import type { PageData } from './$types';
+	import ArtistTable from './ArtistTable.svelte';
 
-	let { data }: { data: PageData } = $props();
+	const { data } = $props();
+	const { artistInteractions } = data;
 </script>
 
 <div class="flex flex-col items-center justify-center">
-	<ArtistTable artistVisits={data.data} />
+	<ArtistTable {artistInteractions} />
 </div>
