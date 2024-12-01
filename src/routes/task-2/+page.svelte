@@ -1,3 +1,12 @@
-<script lang="ts"></script>
+<script lang="ts">
+	import ArtistEngagementByDay from './ArtistEngagementsByDay.svelte';
+	import ArtistEngagementByHour from './ArtistEngagementsByHour.svelte';
 
-<div class="flex flex-col items-center justify-center"></div>
+	const { data } = $props();
+	const { heatmapDataByHour, heatmapDataByDay } = data;
+</script>
+
+<div class="grid gap-4 p-8">
+	<ArtistEngagementByHour data={heatmapDataByHour} />
+	<ArtistEngagementByDay data={heatmapDataByDay} />
+</div>

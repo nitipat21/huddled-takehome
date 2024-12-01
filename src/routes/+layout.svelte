@@ -3,8 +3,8 @@
 	import '../app.css';
 </script>
 
-<main class="h-screen w-full bg-slate-200 dark:bg-slate-950 dark:text-slate-200">
-	<nav class="flex max-w-64 items-center justify-between gap-4 p-2">
+<main class="min-h-screen w-full bg-slate-200 dark:bg-slate-950">
+	<nav class="flex max-w-64 items-center justify-between gap-4 p-2 dark:text-slate-200">
 		<a
 			href="/task-1"
 			class="w-full rounded p-2 text-center text-lg font-semibold {$page.url.pathname === '/task-1'
